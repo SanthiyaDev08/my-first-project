@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes motionBall {
+      from {left: 0px;}
+      25% {height: 70px; width: 70px;}
+      30% {height: 60px; width: 60px;}
+      45% {height: 50px; width: 50px;}
+      55% {height: 40px; width: 40px;}
+      65% {height: 30px; width: 30px;}
+      75% {height: 20px; width: 20px;}
+      to {left: 550px; height: 0px; width: 0px;}
+    }
+    @keyframes word {
+      from {opacity: 0; color: white;}
+      to {opacity: 1; color: blue;}
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 95vh;
+      gap: 1rem;
+    }
+    .title {
+      font-size: 100px;
+      font-weight: bolder;
+      animation: word 5s forwards;
+      position: relative;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .ball {
+      background-color: gold;
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+      animation: motionBall 0.9s forwards;
+      position: relative;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="ball"></div>
+  <div class="title">H</div>
+  <div class="title">U</div>
+  <div class="title">S</div>
+  <div class="title">T</div>
+  <div class="title">L</div>
+  <div class="title">A</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .del-btn {
+      background-color: rgb(177, 0, 0);
+      color: white;
+      border: none;
+      padding: 8.4px 30px;
+      border-radius: 2px;
+    }
+    .name-input, .date-input {
+      padding: 6px 10px;
+    }
+    .add-btn {
+      padding: 8.4px 30px;
+      border: none;
+      background-color: green;
+      color: white;
+      border-radius: 2px;
+    }
+    .todo-grid, .input-section {
+      display: grid;
+      grid-template-columns: 170px 150px 100px;
+      /* column-gap: 10px;
+      row-gap: 10px; */
+      gap: 10px;
+      align-items: center;
+    }
+    .input-section{
+      padding-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Todo List</h1>
+  <div class="input-section">
+    <input type="text" placeholder="Todo name" class="js-name-input  name-input">
+    <input type="date" class="js-date-input  date-input">
+    <button onclick="addTodo();" class="add-btn">Add</button>
+  </div>
+
+  <div class="js-todo-list todo-grid"></div>
+
+  <script>
+    const todoList = JSON.parse(localStorage.getItem('todoList')) || [{name: 'make dinner', date: '16-3-2023'}];  // empty array to store todo objects
+
+    let todoListHTML = '';
+    function renderTodoList() {  
+      todoListHTML = '';
+      for (let i = 0; i < todoList.length; i++) {
+        const todoObject = todoList[i];  // store the current todo object in a variable
+        // const name = todoObject.name;
+        // const date = todoObject.date;
+        const {name, date} = todoObject; // object destructuring
+        const html = `<div>${name}</div>
+                      <div>${date}</div>
+                      <button class="del-btn" onclick="todoList.splice(${i}, 1); renderTodoList();">Delete</button>`; // generating html using javascript
+        todoListHTML += html;
+        
+      }
+      //console.log(todoListHTML); // output : <p>make dinner</p><p>wash dishes</p>
+      document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+    }
+
+    function addTodo() {
+      const inputElement = document.querySelector('.js-name-input');
+      const name = inputElement.value;
+
+      const dateElement = document.querySelector('.js-date-input');
+      const date = dateElement.value;
+
+      if (!name || !date) {
+         alert("Please fill both fields");
+         return;
+      }
+
+      todoList.push({name, date}); // object shorthand property
+      // {name: name, date: date} also valid - same name and date variables
+
+      // console.log(todoList);
+      inputElement.value = '';
+      dateElement.value = '';
+      renderTodoList();
+      localStorage.setItem('todoList', JSON.stringify(todoList)); // store the todoList array in local storage as a string
+    }
+
+  </script>
+</body>
+</html>

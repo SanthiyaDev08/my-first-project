@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  button{
+    border: none;
+    color: white;
+    padding: 20px 25px;
+    /* background-color: black; */
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  body{
+    background-color: black;
+  }
+  .num-btn{
+    background-color: rgb(56, 56, 56);
+  }
+  .op-btn{
+    background-color: rgb(255, 166, 0);
+  }
+  .calc{
+    color: white;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<body>
+  <p class="js-calc calc"></p>
+  <br><br>
+  <p>
+    <button onclick="calculator('1');" class="num-btn">1</button>
+
+    <button onclick="calculator('2');" class="num-btn">2</button>
+
+    <button onclick="calculator('3');" class="num-btn">3</button>
+
+    <button onclick="calculator('+');" class="op-btn">+</button>
+  </p>
+
+  <p>
+    <button onclick="calculator('4');" class="num-btn">4</button>
+
+    <button onclick="calculator('5');" class="num-btn">5</button>
+
+    <button onclick="calculator('6');" class="num-btn">6</button>
+
+    <button onclick="calculator('-');" class="op-btn">-</button>
+
+  </p>
+
+  <p>
+    <button onclick="calculator('7');" class="num-btn">7</button>
+
+    <button onclick="calculator('8');" class="num-btn">8</button>
+
+    <button onclick="calculator('9');" class="num-btn">9</button>
+
+    <button onclick="calculator('*');" class="op-btn">*</button>
+
+  </p>
+
+  <p>
+    <button onclick="calculator('0');" class="num-btn">0</button>
+
+    <button onclick="calculator('.');" class="num-btn">.</button>
+
+    <button onclick="calculation = eval(calculation); show();" class="num-btn">=</button>
+
+    <button onclick="calculator('/');" class="op-btn">/</button>
+  </p>
+
+  <p>
+    <button onclick="calculation = ''; localStorage.setItem('calculation', calculation); show();" class="num-btn">cl</button>
+  </p>
+
+  <script>
+    console.log(localStorage.getItem('calculation')) || '';
+    let calculation = '';
+    function calculator(value){
+      calculation += value;
+      show();
+      localStorage.setItem('calculation', calculation);
+    }
+    function show(){
+      document.querySelector('.js-calc').innerHTML = calculation;
+    }
+  </script>
+</body>
+</html>

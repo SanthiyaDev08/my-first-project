@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#roll{
+    font-size: 3em;
+    padding: 10px 25px;
+    border-radius: 15px;
+    background-color: lightblue;
+    color: white;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+#roll:hover {
+    background-color: rgb(100, 191, 240);
+    color: aqua;
+    text-decoration: underline;
+}
+.mylabel{
+    font-size: 3em;
+    border-style: solid;
+    padding: 10px 30px;
+    border-radius: 15px;
+    background-color: lightblue;
+    color: white;
+}
+.mylabel:hover {
+    color: palevioletred;
+}

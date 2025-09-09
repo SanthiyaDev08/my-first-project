@@ -1,0 +1,10 @@
+Mern stack?
+collection of javascript technologies that work together to make a full stack web development environment.
+mongodb - database,
+expressjs - (backend) managing routing and server aspects,
+nodejs - execute javascript and handle request and manage backend operations,
+reactjs - (frontend) dynamic and interactive UI.
+
+
+why we use mern stack?
+

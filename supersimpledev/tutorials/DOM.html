@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>First button</button>
+  <button class="js-btn">Second button</button>
+  <script>
+    console.log(document.querySelector('.js-btn').innerHTML);
+    console.log(document.querySelector('.js-btn'));
+    //html elements are js objects
+    const buttonElement = document.querySelector('.js-btn');
+    console.log(buttonElement);
+    //using DOM, html element put inside the javascript then save it in a variable
+    //DOM combines js and html together. it gives js full control of the webpage
+
+    //Document object - represents the webpage
+    //Window object - represents the browser
+    window.document   //gives the same document object
+    window.console.log('window');    //console object
+    window.alert('hello');
+    //but we don't write this often because window object has a shortcut. we don't have to type 'window.' js will automatically add window. at the front for us.
+  </script>
+</body>
+</html>

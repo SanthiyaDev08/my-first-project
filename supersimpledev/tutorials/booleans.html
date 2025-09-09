@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booleans</title>
+</head>
+<body>
+  <script>
+    console.log(3.12 == 3.12);
+    console.log(typeof 'false');
+    console.log(typeof true);
+    let a = 5.0;
+    let b = '5.0';
+    console.log(a == b);
+    console.log(a === b);
+    
+    if (true) {
+      console.log('Hii..');
+    }
+    else{
+      console.log('Get lost..');
+    }
+    // if (false) {
+    //   console.log('Hii..'); //doesn't print anything
+    // }
+    const age = 18;
+    if (23 <= age){
+      console.log("You are an adult..");
+    }
+    else if (30 >= age){
+      console.log('You are old..');
+    }
+    else{
+      console.log("You are a kid..");
+    }
+    //logical operators have lower priority than math and comparisons..
+
+    if (2){
+      console.log('2 is a truthy value');
+    }
+    if (0){
+      console.log('0 is a falsy value');  // 0 - falsy value
+    }
+
+    // list of falsy values : false 0 '' NaN undefined null
+    console.log('name'/3);  //NaN
+    let name;
+    console.log(name);
+    const name1 = undefined;   //need to store that word in the variable else will show error
+    console.log(name1);
+
+  //SHORTCUTS FOR IF-ELSE STATEMENTS
+    //TERNARY OPERATOR (?:)
+    true ? console.log('truthy') : console.log('falsy');
+    const result = 0 ? 'yes' : 'no';
+    console.log(result);
+
+    //GUARD OPERATOR (&&)
+    true && console.log('Hello..');  
+    false && console.log('Hello..'); //short circuit evaluation
+    //shortcut for if statement
+    const msg = false && 'hello';
+    console.log(msg);
+
+    //DEFAULT OPERATOR (||)
+    const message = false || 'hello';
+    console.log(message);
+    const currency = 'US' || 'YEN';
+    console.log(currency);
+    console.log(8) || console.log('Hell Yeah!!');
+    console.log(8) || false;
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* for counter program */
+#counter{
+    display: block;
+    text-align: center;
+    font-size: 15em;
+    font-family: Helvetica;
+}
+#buttoncontainer{
+    text-align: center;
+}
+.buttons{
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: darkred;
+    background-color: tomato;
+    border-radius: 5px;
+    cursor: cell;
+    transition: background-color 0.5s;
+    font-family: Helvetica;
+}
+.buttons:hover{
+    background-color: red;
+    color: white;
+}

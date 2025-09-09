@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+</head>
+<body>
+  <script>
+    setInterval(() => {
+      let date = new Date();  // gives current time and date;
+      let time = date.toLocaleTimeString(); // convert the time portion into a string.
+      document.body.innerHTML = time;
+    }, 1000);
+  </script>
+</body>
+</html>

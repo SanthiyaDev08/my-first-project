@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>Cart Quantity</p>
+
+  <button onclick="
+    updateQuantity(1, '+'); show();
+  ">Add to Cart</button>
+
+  <button onclick="
+    updateQuantity(2, '+'); show();
+  ">+2</button>
+  
+  <button onclick="
+    updateQuantity(3, '+'); show();
+  ">+3</button>
+
+  <button onclick="
+    updateQuantity(4, '+'); show();
+  ">+4</button>
+  
+  <button onclick="
+    updateQuantity(5, '+'); show();
+  ">+5</button>
+  
+  <button onclick="
+    updateQuantity(1, '-'); show();
+  ">Remove from cart</button>
+
+  <button onclick="
+    updateQuantity(2, '-'); show();
+  ">-2</button>
+  
+  <button onclick="
+    updateQuantity(3, '-'); show();
+  ">-3</button>
+
+  <p class="js-result"></p>
+  <p class="js-issue"></p>
+  
+  <script>
+    let cartQuantity = 0;
+    show();
+    function updateQuantity(value, unit){
+      if (unit === '+'){
+        document.querySelector('.js-issue').innerHTML = '';
+        cartQuantity += value;
+      }
+      else if (unit === '-'){
+        if (cartQuantity - value < 0) {
+          document.querySelector('.js-issue').innerHTML = 'Not enough items in the cart..';
+          return;
+        }
+        cartQuantity -= value;
+        document.querySelector('.js-issue').innerHTML = '';
+      }
+      
+    }
+    function show(){
+      document.querySelector('.js-result').innerHTML = `Cart Quantity : ${cartQuantity}`;
+    }
+  </script>
+</body>
+</html>

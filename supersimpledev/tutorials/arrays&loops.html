@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays and Loops</title>
+</head>
+<body>
+  <script>
+    //arrays - represents a list of values
+    const myArray = [
+     1,
+     2,
+     3,
+     4
+    ];
+    console.log(myArray);
+    console.log(myArray[1]);
+    myArray[1] = 20;
+    console.log(myArray);
+    const mixedArray = [1, 'hello', true, {name: 'santhiya', rollno: '24CSR270'}, [1, 2, 3]];
+    console.log(typeof mixedArray);    //An array is an object (special type of object)
+    console.log(Array.isArray([1, 2, 3])); //check if it is an array
+    console.log(Array.isArray(4));
+
+    console.log(mixedArray.length);
+    console.log(myArray.length);
+
+    myArray.push(100);
+    //console.log(myArray.push(100));
+    console.log(myArray);
+
+    myArray.splice(0, 2);     //(index, no. of elements to be removed)
+    console.log(myArray);
+
+
+    let i = 0; // loop counter
+    while (i < 10) { // loop condition
+      console.log(i);
+      i++; // increment the counter
+    }
+    // loops create a scope
+    console.log('\n');
+    for (let i = 1; i <= 5; i++) {
+      console.log(i);
+    }
+
+    // while vs for loop
+    // for loop => when we know how many times to loop - standard loop
+    // while loop => when we don't know how many times to loop - non-standard loop
+
+    let randomNumber = 0;
+    while (randomNumber < 0.5) {
+      randomNumber = Math.random();
+      console.log(randomNumber);
+    }
+    console.log('Random number is greater than or equal to 0.5:', randomNumber);
+
+
+    // for arrays
+    const todoList = [
+      'todo1: Buy groceries',
+      'todo2: Clean the house',
+      'todo3: Finish homework',
+      'todo4: Call mom'
+    ];
+    for (let j = 0; j < todoList.length; j++) {
+      const value = todoList[j];
+      console.log(value);
+    }
+
+
+    // ACCUMULATOR PATTERN
+
+    const nums = [1, 2, 3, 4, 5];
+    let sum = 0;  // accumulator variable
+    for (let i = 0; i < nums.length; i++){
+      sum += nums[i];
+    }
+    console.log('Sum of nums:', sum);
+
+    // for objects
+    const person = {
+      name: 'John',
+      age: 30,
+      city: 'New York'
+    };
+    // for...in loop for objects
+    for (let key in person) {
+      console.log(`${key}: ${person[key]}`);
+    }
+
+    // for...of loop for arrays 
+    const numbers = [10, 20, 30, 40];
+    for (let number in numbers) {
+      console.log(number); // in - print index
+    }
+    for (let number of numbers) { // of - print value
+      console.log(number);
+    }
+
+    const numDoubled = [];
+    for (let i = 0; i < numbers.length; i++) {
+      numDoubled.push(numbers[i] * 2);
+    }
+    console.log(numDoubled);
+
+    const array1 = [1, 2, 3, 4];
+    const array2 = array1;
+    array2.push(5);
+    console.log(array1);  // both array1 and array2 point to the same array in memory
+
+    //to avoid this, we can create a copy of the array using slice() or spread operator
+    const array3 = array1.slice(); // creates a shallow copy of array1
+    array3.push(6);
+    console.log(array3);
+    console.log(array1);  // array1 remains unchanged
+    const array4 = [...array1]; // spread operator
+    array4.push(7);
+    console.log(array4);
+    console.log(array1);  // array1 remains unchanged
+
+    const [firstValue, secondValue, thirdValue] = [100, 200, 300, 400, 500]; // array destructuring
+    console.log(firstValue, secondValue, thirdValue);
+
+    for (let i = 0; i <= 10; i++) {
+      if (i % 2 === 0) {
+        continue; // skip even numbers
+      }
+      if (i === 10) {
+        break; // exit the loop when i is 10
+      }
+      console.log(i);
+    }
+
+    
+  </script>
+</body>
+</html>

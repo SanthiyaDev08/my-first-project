@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .blue-btn{
+            padding: 10px 20px;
+            font-size: large;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            border: none;
+            background-color: rgb(55, 112, 255);
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.15s;
+        }
+        .blue-btn:hover{
+            background-color: blue;
+        }
+        .blue-btn:active{
+            background-color: rgb(55, 112, 255);
+            padding: 13px 23px;
+        }
+        div{
+            padding: 20px;
+        }
+        p{
+            padding-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+      <!-- onclick - when we press the btn it will perform javascript -->
+        <button title="hello" class="blue-btn" onclick="alert('Good morning!');">hello</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi adipisci quidem ad expedita beatae maxime vero autem eveniet veniam vitae?</p>
+    </div>
+    <script>
+        // alert('Hello Santhiya!');
+        console.log(2 + 2);
+        console.log('some' + 'text');
+        console.log('text-' + 3);
+    </script>
+</body>
+</html>

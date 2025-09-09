@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes mymove {
+      0% {top: 0px; background-color: purple;}  /* starts from top */
+      25% {top: 250px; background-color: indigo;} /* moves down to 250px */
+      35% {top: 200px; background-color: blue;} /* moves up to 200px */
+      50% {top: 150px; background-color: green;} /* moves up to 150px */
+      60% {top: 100px; background-color: yellow;} /* moves up to 100px */
+      75% {top: 50px; background-color: orange;} /* moves up to 50px */
+      100% {top: 0px; background-color: red;} /* moves to top */
+    }
+    .container1 {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: mymove 5s infinite;
+      animation-direction: alternate-reverse;
+      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    @keyframes bounce {
+      from {top: -100px; background-color: green;}
+      50% {top: 500px; background-color: black;}
+      to {top: -100px; background-color: green;}
+    }
+    .container2 {
+      width: 50px;
+      height: 50px;
+      background: black;
+      position: relative;
+      animation: bounce 5s infinite;
+    }
+    body {
+      display: flex;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!--can use multiple styles - defined by keyframes -  rule is used to control the steps in an animation sequence by defining CSS styles for points along the animation sequence.-->
+
+  <!-- Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete. for best browser support, you should always define both 0% and 100% selectors. -->
+
+  <!-- CSS Syntax
+    @keyframes name {
+      keyframes-selector {css-styles;}
+      keyframes-selector {css-styles;}
+      ...
+    } -->
+
+    <!-- Specify the Speed Curve of the Animation
+      The animation-timing-function property specifies the speed curve of the animation.
+
+      The animation-timing-function property can have the following values:
+
+      ease - Specifies an animation with a slow start, then fast, then end slowly (this is default)
+      linear - Specifies an animation with the same speed from start to end
+      ease-in - Specifies an animation with a slow start
+      ease-out - Specifies an animation with a slow end
+      ease-in-out - Specifies an animation with a slow start and end
+      cubic-bezier(n,n,n,n) - Lets you define your own values in a cubic-bezier function. -->
+    <div class="container1"></div>
+    <div class="container2"></div>
+</body>
+</html>

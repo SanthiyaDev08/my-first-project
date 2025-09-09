@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="" class="js-btn">Click it</button>
+  <script>
+
+    const buttonElement = document.querySelector('.js-btn');
+    const eventListener = () => {
+      console.log('I swear!! button clicked');
+    };
+    buttonElement.addEventListener('click', () => {
+      console.log('button clicked');
+    });
+    buttonElement.addEventListener('click', () => {
+      console.log('hey!! button clicked');
+    });
+    buttonElement.addEventListener('click', eventListener);
+
+    buttonElement.removeEventListener('click', eventListener);
+    // stopping the event listener using the function name
+  
+    buttonElement.removeEventListener('click', () => {
+      console.log('hey!! button clicked');
+    }); 
+    // this will not work because the function is anonymous which means it does not have a name
+
+    // so we cannot remove an anonymous function as an event listener
+    
+    // we can add multiple event listeners to a single element
+
+    // we can remove an event listener using removeEventListener method
+
+    // in onclick - the word after the 'on' is an event
+
+    //onclick is the old way of event handling - may override the previous event - only one event can be handled - we can't remove an event listener added using onclick
+
+    //addeventlistener has 2 parameters - event type and the function to be called when the event occurs. after the event occurs the function will be executed (like callback function).
+
+    // Arrow function 
+    const arrowFunction = () => {
+      console.log('hello');
+    }
+    arrowFunction();
+
+    const fruits = fruit => {
+      console.log(fruit);
+    }
+    fruits('apple');
+
+    const add = () => 8+8;
+    console.log(add());
+
+    ['naruto', 'sasuke', 'sakura', 'kakashi', 'itachi', 'hinata'].forEach((member, index) => {   // arrow function
+      if (member === 'sakura') {
+        return;  // to skip the current iteration (like continue)
+      }
+      // we cant use break and continue in forEach loop
+      console.log(index);
+      console.log(member);
+    })
+
+    const object = {
+      meth: () => {
+        console.log('hii');
+      },
+      method() {
+        console.log('hello');  // arrow function does not bind its own this
+      }
+    }
+    object.meth();
+    object.method();
+
+    // filter method
+    // filter the elememts and store it in new array based on the condition.
+    const number = [1, 2, -3, -4, 5, 6, -7, -8, -9];
+    let filtered = number.filter((value, index) => {
+      // if (value < 0) {
+      //   return false; // to skip the negative elements
+      // }
+      // else {
+      //   return true; // to include the element in the new array
+      // }
+      return value >= 0; // same as above if-else statement
+    });
+    console.log(filtered);
+
+    // map method
+    // transform an array into an another new array.
+    const array = [1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const mapped = array.map((value, index) => {
+      return value * 10;
+    });
+    console.log(mapped);
+    // or
+    const mapped1 = array.map(value => value * 10);
+    console.log(mapped1);
+
+    // closure - if a function has access to a value, it will always have access to that value.
+
+    // foreach index is only alive inside the foreach.. if we try to do console.log(index) ---> it will show error. -- this feature is called closure (value gets packaged together (enclosed) with the function)
+
+  </script>
+</body>
+</html>

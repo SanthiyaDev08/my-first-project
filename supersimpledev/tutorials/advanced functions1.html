@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    greeting();  //hoisting
+    function greeting() {
+      console.log("Hello World!");
+    };
+    greeting();
+    console.log(greeting);
+    //it is easy to read. supports hoisting (calling the function before the declaration)
+
+    // anonymous function - a function without a name
+    // function expression - a function assigned to a variable
+    const add = function(a, b) {
+      return a + b;
+    };
+    console.log(add);
+    console.log(typeof add);
+    console.log(add(5, 3));
+    //it is not easy to read. does not support hoisting (calling the function before the declaration)
+
+    const object = {
+      name: "Santhiya",
+      age: 19,
+      greet: function greeting() {
+        console.log("Hello " + this.name);
+      }
+    }
+    object.greet();
+
+    function fun1(parameter) {
+      console.log(parameter);
+      parameter();
+    }
+    fun1(function() {
+      console.log("Hiii...");
+    });  // function as a parameter is cslled a callback function..
+    // funcions are values - can be assigned to a variable, passed as an argument to another function, returned from a function
+
+    function fun2() {
+      return function() {
+        console.log("Hiii...");
+      }
+    }
+    const innerFun = fun2(); // meaning fun2() returns a function
+    console.log(innerFun);
+    innerFun(); // calling the returned function
+    fun2()(); // calling the returned function in a single line
+
+    function fun3(parameter) {
+      console.log(parameter);
+      return parameter();
+    }
+    const innerFun2 = fun3(function() {
+      console.log("Hiii...");
+    });
+
+    setTimeout(function() {
+      console.log("timeout..")
+    }, 3000);  // it is a asynchronous function - it will execute after 3 seconds. computer won't wait for it to complete, it will execute the next line of code.
+
+    //synchronous function - it will execute in the order it is written. computer will wait for it to complete before moving to the next line of code. -- all the code we have written so far is synchronous.
+
+    // function inside the setTimeout is also a synchonous.
+
+
+    // setInterval(function() {
+    //   console.log("interval..");
+    // }, 3000); // it will execute the function every 3 seconds.
+    console.log("code..");
+
+
+    ['naruto', 'sasuke', 'sakura', 'kakashi', 'itachi', 'hinata'].forEach(function(member, index) {
+      if (member === 'sakura') {
+        return;  // to skip the current iteration (like continue)
+      }
+      // we cant use break and continue in forEach loop
+      console.log(index);
+      console.log(member);
+    })
+
+  </script>
+</body>
+</html>

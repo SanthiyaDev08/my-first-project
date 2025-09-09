@@ -1,0 +1,9 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+}
+
+/* for checked property*/
+#submit{
+    font-size: 1em;
+}
