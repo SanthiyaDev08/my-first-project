@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container-grid, .content { /*separate div needed for grid or flex */
+      display: grid;
+      grid-template-columns: 180px 140px 70px;
+      align-items: center;
+      justify-content: center;
+      text-align: value;
+      gap: 1rem;
+      padding: 10px;
+      overflow-y: auto;
+      max-height: 200px;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 90vh;
+    }
+    .wrapper {
+      box-shadow: 3px 3px 10px rgba(225, 0, 255, 0.601);
+      border-radius: 20px;
+      height: 300px;
+      padding: 10px;
+    }
+    .todo-input, .date-input, .add-btn {
+      padding: 10px 17px;
+      border-radius: 17px;
+      border: none;
+      box-shadow: 1px 1px 10px rgba(225, 0, 255, 0.601);
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      box-shadow: 1px 1px 10px rgba(225, 0, 255, 0.601);
+      padding: 10px 17px;
+      border-radius: 17px;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: rgba(225, 0, 255, 0.601);
+      color:white;
+    }
+    input:hover {
+      color: white;
+      background-color: rgba(225, 0, 255, 0.601);
+    }
+    input:hover::placeholder {
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container-grid">
+      <input type="text" placeholder="Enter your work to do" class="todo-input">
+      <input type="date" class="date-input">
+      <button class="add-btn">Add</button>
+    </div>
+    
+    <div class="content"></div>
+  </div>
+  <script>
+    let todoList = JSON.parse(localStorage.getItem('todoList')) || []; // array defaultly create objects.
+    let todoElement = document.querySelector('.todo-input');
+    let dateElement = document.querySelector('.date-input');
+    document.querySelector('.add-btn').addEventListener('click', () => {
+      const todo = todoElement.value;
+      const date = dateElement.value;
+      if (!todo || !date) {
+         alert("Please fill both fields");
+         return;
+      }
+      todoList.push({todo, date}); // objects created in array.
+      todoElement.value = '';
+      dateElement.value = '';
+      renderTodo();
+    });
+    let pElement = document.querySelector('.content');
+    function renderTodo() {
+      let html = '';
+      todoList.forEach((item, i) => {
+        html += `<div>${item.todo}</div>
+                 <div>${item.date}</div>
+                 <button class="del-btn" onclick="todoList.splice(${i}, 1);
+      renderTodo();">Delete</button>`;
+      });
+      pElement.innerHTML = html;
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+    }
+    
+  </script>
+</body>
+</html>
